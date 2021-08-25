@@ -2,18 +2,14 @@ package com.bridgeLabz.employeeWage;
 
 public class EmployeeWage {
 	
+	private static final int EmployeeWagePerHour = 20;
+	private static final int FullDayHours = 8;
 	
 	public static void main(String args[]) {
 
 		EmployeeWage employee = new EmployeeWage();
 		
-		if (employee.checkAttendence()) {
-			System.out.println("Employee is present");
-		}
-		else {
-			System.out.println("Employee is absent");
-		}
-		
+		employee.calculateWage(false);
 		
 	}
 	
@@ -26,6 +22,20 @@ public class EmployeeWage {
 		}
 
 		return true;
+
+	}
+	
+	public void calculateWage(boolean attendence) {
+		int employeeWage = 0;
+		
+		if (checkAttendence()) {
+			employeeWage += EmployeeWagePerHour * FullDayHours;
+			
+			System.out.println("Employee is present and his wage is " + employeeWage);
+		}
+		else {
+			System.out.println("Employee is absent");
+		}
 
 	}
 
