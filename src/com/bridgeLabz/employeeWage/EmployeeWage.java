@@ -67,9 +67,15 @@ public class EmployeeWage {
 	
 	public void monthlyWageCalculation() {
 		
-		for (int i=0;i<20;i++) {
+		int workingDays = 0;
+		
+		while (workingHours < 100 && workingDays < 20) {
 			calculateWage();
+			
+			workingDays ++;
 		}
+		
+		System.out.println("Employee total working hour : " + workingHours);
 		
 		System.out.println("Employee is present and his wage is " + employeeWage);
 
