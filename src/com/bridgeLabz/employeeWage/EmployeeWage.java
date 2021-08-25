@@ -14,46 +14,57 @@ public class EmployeeWage {
 		
 	}
 	
-	public boolean checkAttendence() {
+	public int checkAttendence() {
 		
 		int employeeAttendenceStatus = (int) (Math.floor(Math.random() * 10) % 2); // 1 means present, 0 means absent
 		
 		if (employeeAttendenceStatus == 0) {
-			return false;
+			return 0;
 		}
 
-		return true;
+		return 1;
 
 	}
 	
 	public void calculateWage(boolean attendence) {
 		int employeeWage = 0;
+		int workingHours = 0;
 		
-		if (checkAttendence()) {
-			if (partTimeOrFullTimeCheck()) {
-				employeeWage += EmployeeWagePerHour * PartTimeHours;
-			}
-			else {
-				employeeWage += EmployeeWagePerHour * FullDayHours;	
-			}
-			
+		
+		switch (partTimeOrFullTimeCheck()) {
+		case (1):
+			employeeWage += EmployeeWagePerHour * FullDayHours;
+			workingHours += FullDayHours;
 			System.out.println("Employee is present and his wage is " + employeeWage);
-		}
-		else {
+			break;
+
+		case (2):
+			employeeWage += EmployeeWagePerHour * PartTimeHours;
+			workingHours += PartTimeHours;
+			System.out.println("Employee is present and his wage is " + employeeWage);
+			break;
+
+		default:
+			employeeWage += 0;
 			System.out.println("Employee is absent");
+
 		}
 
 	}
 	
-	public boolean partTimeOrFullTimeCheck() {
+	public int partTimeOrFullTimeCheck() {
 		
 		int employeeWorkStatus = (int) (Math.floor(Math.random() * 10) % 2); // 1 means fulltime, 0 means partime
 
-		if (employeeWorkStatus == 0) {
-			return false;
+		if (checkAttendence() == 0) {
+			return 0;
 		}
 		
-		return true;
+		if (employeeWorkStatus == 0) {
+			return 2;
+		}
+		
+		return 1;
 	}
 
 }
