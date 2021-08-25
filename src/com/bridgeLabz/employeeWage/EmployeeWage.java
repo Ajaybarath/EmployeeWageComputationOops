@@ -77,7 +77,7 @@ public class EmployeeWage {
 		
 		System.out.println("Employee total working hour : " + workingHours);
 		
-		System.out.println("Employee is present and his wage is " + employeeWage);
+		System.out.println("Employee wage calculated is " + employeeWage);
 
 	}
  
