@@ -6,11 +6,14 @@ public class EmployeeWage {
 	private static final int FullDayHours = 8;
 	private static final int PartTimeHours = 4;
 	
+	int employeeWage = 0;
+	int workingHours = 0;
+	
 	public static void main(String args[]) {
 
 		EmployeeWage employee = new EmployeeWage();
 		
-		employee.calculateWage(false);
+		employee.monthlyWageCalculation();
 		
 	}
 	
@@ -26,28 +29,22 @@ public class EmployeeWage {
 
 	}
 	
-	public void calculateWage(boolean attendence) {
-		int employeeWage = 0;
-		int workingHours = 0;
-		
+	public void calculateWage() {	
 		
 		switch (partTimeOrFullTimeCheck()) {
 		case (1):
 			employeeWage += EmployeeWagePerHour * FullDayHours;
 			workingHours += FullDayHours;
-			System.out.println("Employee is present and his wage is " + employeeWage);
 			break;
 
 		case (2):
 			employeeWage += EmployeeWagePerHour * PartTimeHours;
 			workingHours += PartTimeHours;
-			System.out.println("Employee is present and his wage is " + employeeWage);
 			break;
 
 		default:
 			employeeWage += 0;
-			System.out.println("Employee is absent");
-
+			
 		}
 
 	}
@@ -67,4 +64,15 @@ public class EmployeeWage {
 		return 1;
 	}
 
-}
+	
+	public void monthlyWageCalculation() {
+		
+		for (int i=0;i<20;i++) {
+			calculateWage();
+		}
+		
+		System.out.println("Employee is present and his wage is " + employeeWage);
+
+	}
+ 
+ }
