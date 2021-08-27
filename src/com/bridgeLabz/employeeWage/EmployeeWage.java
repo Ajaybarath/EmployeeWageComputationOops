@@ -2,25 +2,32 @@ package com.bridgeLabz.employeeWage;
 
 public class EmployeeWage {
 
+	Employee[] employeeArray = new Employee[5];
+	int noOfCompany = 0;
+
 	public static void main(String args[]) {
 
-		Employee employee1 = new Employee("DMart", 25, 2);
-
-		employee1.monthlyWageCalculation();
-
-		Employee employee2 = new Employee("Flipkart", 25, 2);
-
-		employee2.monthlyWageCalculation();
-
-		Employee employee3 = new Employee("Relaince", 25, 2);
-
-		employee3.monthlyWageCalculation();
+		EmployeeWage employeeWage = new EmployeeWage();
+		employeeWage.addEmployeeArray(new Employee("DMart", 25, 2));
+		employeeWage.addEmployeeArray(new Employee("Flipkart", 25, 2));
+		employeeWage.addEmployeeArray(new Employee("Relaince", 25, 2));
 		
-		System.out.println("Total employee wage for " + employee1.companyName + " is " + employee1.employeeWage);
-		System.out.println("Total employee wage for " + employee2.companyName + " is " + employee2.employeeWage);
-		System.out.println("Total employee wage for " + employee3.companyName + " is " + employee3.employeeWage);
+		employeeWage.getTotalEmployeeWage();
+	}
 
+	public void addEmployeeArray(Employee employee) {
 
+		employeeArray[noOfCompany] = employee;
+		employee.monthlyWageCalculation();
+		noOfCompany++;
+
+	}
+
+	public void getTotalEmployeeWage() {
+		for (int i = 0; i < noOfCompany; i++) {
+			System.out.println(
+					"Total employee wage for " + employeeArray[i].companyName + " is " + employeeArray[i].employeeWage);
+		}
 	}
 
 }
