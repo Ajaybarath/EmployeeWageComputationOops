@@ -9,8 +9,8 @@ public class Employee {
 	int noOfWorkingDays = 0;
 	int employeeWagePerHour = 0;
 
-	private int employeeWage = 0;
-	private int workingHours = 0;
+	int employeeWage = 0;
+	int workingHours = 0;
 	
 	public Employee(String companyName, int noOfWorkingDays, int employeeWagePerHour) {
 		// TODO Auto-generated constructor stub
@@ -82,4 +82,5 @@ public class Employee {
 		System.out.println("Employee wage calculated is " + employeeWage);
 
 	}
+	
 }
