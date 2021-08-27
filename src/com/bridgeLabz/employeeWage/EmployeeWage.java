@@ -1,6 +1,6 @@
 package com.bridgeLabz.employeeWage;
 
-public class EmployeeWage {
+public class EmployeeWage implements EmployeeWageBuilder {
 
 	Employee[] employeeArray = new Employee[5];
 	int noOfCompany = 0;
